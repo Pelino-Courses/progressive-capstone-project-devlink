@@ -10,7 +10,7 @@ Team Name	DevLink
 
 2.	Team Members
 Name	Student ID	Role	Key Responsibilities
-Asifiwe Afisa Uwitonze 	22300	Project Lead & UI/UX Designer	Coordination, wireframes, GitHub management
+Asifiwe Afisa Uwitonze 	223011874	Project Lead & UI/UX Designer	Coordination, wireframes, GitHub management
 Diane Uwamariya	223003620	Research & Documentation Lead	Field research, documentation, synthesis
 
 3.	Communication Plan
