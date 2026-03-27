@@ -1,4 +1,5 @@
 Team Charter & Project Roadmap
+
 Team: DevLink
 1.	Team Information
 Team Name	DevLink
@@ -8,12 +9,12 @@ Assessment	Project Ideation Assessment
 Date	March 27, 2026
 Team Name	DevLink
 
-2.	Team Members
+3.	Team Members
 Name	Student ID	Role	Key Responsibilities
-Asifiwe Afisa Uwitonze 	22300	Project Lead & UI/UX Designer	Coordination, wireframes, GitHub management
+Asifiwe Afisa Uwitonze 	223011874 Project Lead & UI/UX Designer	Coordination, wireframes, GitHub management
 Diane Uwamariya	223003620	Research & Documentation Lead	Field research, documentation, synthesis
 
-3.	Communication Plan
+4.	Communication Plan
 Area	Details
 Main Tool	WhatsApp (daily communication)
 Daily Meeting	5:00 PM (15 minutes check-in)
@@ -21,7 +22,7 @@ Urgent Issues	Phone call
 Response Time	Within 2 hours (9 AM – 8 PM)
 File Sharing	GitHub (all documents stored and reviewed there)
 
-4. Roles & Responsibilities
+5. Roles & Responsibilities
 Project Lead – Asifiwe Afisa Uwitonze 
 •	Ensure tasks are completed on time 
 •	Manage GitHub repository 
@@ -38,7 +39,7 @@ Documentation Lead – Diane Uwamariya
 UI/UX Designer – Asifiwe Afisa Uwitonze 
 •	Design wireframes and user flow 
 •	Create simple and user-friendly layouts 
-5. Project Roadmap (Weeks 1–9)
+6. Project Roadmap (Weeks 1–9)
 Phase 1: Ideation (Weeks 1–2)
 Week	Tasks	Output
 Week 1	Prepare interview questions	Interview guide
