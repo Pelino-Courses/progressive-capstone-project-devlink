@@ -1,7 +1,7 @@
 # App Contest Submission – PreLoved Market
 
 ## Team Information
-- **Team Name:** DevDynasty  
+- **Team Name:** DevLink  
 - **App Name:** PreLoved Market  
 - **Date:** March 27, 2026  
 
