@@ -1,0 +1,173 @@
+import '../models/product.dart';
+import '../models/user.dart';
+import '../models/review.dart';
+import '../models/enums.dart';
+
+/// Static dummy data for simulating a backend data source.
+/// Used by [ProductService] to return sample products, users, and reviews.
+class DummyData {
+  // A3: List collection of Product objects
+  static final List<Product> products = [
+    Product(
+      id: 'p1',
+      createdAt: DateTime.now().subtract(const Duration(days: 2)),
+      title: 'Blue Denim Jacket',
+      description: 'Classic blue denim jacket, barely worn. Great for layering.',
+      price: 8000,
+      category: ProductCategory.clothes,
+      condition: ProductCondition.likeNew,
+      size: 'M',
+      imageUrls: ['https://via.placeholder.com/300x400?text=Denim+Jacket'],
+      sellerId: 'u1',
+      location: 'Nyarugenge, Kigali',
+      measurements: 'Chest: 96cm, Length: 62cm',
+    ),
+    Product(
+      id: 'p2',
+      createdAt: DateTime.now().subtract(const Duration(days: 5)),
+      title: 'White Sneakers',
+      description: 'Clean white sneakers, size 42. Worn only a few times.',
+      price: 12000,
+      category: ProductCategory.shoes,
+      condition: ProductCondition.good,
+      size: '42',
+      imageUrls: ['https://via.placeholder.com/300x400?text=White+Sneakers'],
+      sellerId: 'u2',
+      location: 'Gasabo, Kigali',
+    ),
+    Product(
+      id: 'p3',
+      createdAt: DateTime.now().subtract(const Duration(hours: 10)),
+      title: 'Leather Handbag',
+      description: 'Brown leather handbag with gold hardware. Excellent condition.',
+      price: 15000,
+      category: ProductCategory.accessories,
+      condition: ProductCondition.likeNew,
+      size: 'One Size',
+      imageUrls: ['https://via.placeholder.com/300x400?text=Leather+Handbag'],
+      sellerId: 'u1',
+      location: 'Kicukiro, Kigali',
+    ),
+    Product(
+      id: 'p4',
+      createdAt: DateTime.now().subtract(const Duration(days: 1)),
+      title: 'Floral Summer Dress',
+      description: 'Light floral dress, perfect for warm weather. Size S.',
+      price: 6500,
+      category: ProductCategory.clothes,
+      condition: ProductCondition.good,
+      size: 'S',
+      imageUrls: ['https://via.placeholder.com/300x400?text=Floral+Dress'],
+      sellerId: 'u3',
+      location: 'Muhanga, Southern Province',
+      measurements: 'Bust: 82cm, Waist: 68cm, Length: 95cm',
+    ),
+    Product(
+      id: 'p5',
+      createdAt: DateTime.now().subtract(const Duration(days: 7)),
+      title: 'Leather Belt',
+      description: 'Black genuine leather belt, 90cm. Minimal wear.',
+      price: 3000,
+      category: ProductCategory.accessories,
+      condition: ProductCondition.fair,
+      size: '90cm',
+      imageUrls: ['https://via.placeholder.com/300x400?text=Leather+Belt'],
+      sellerId: 'u2',
+      location: 'Gasabo, Kigali',
+    ),
+  ];
+
+  // A3: List collection of User objects
+  static final List<User> users = [
+    User(
+      id: 'u1',
+      createdAt: DateTime(2024, 1, 15),
+      fullName: 'Amina Uwimana',
+      email: 'amina.uwimana@ur.ac.rw',
+      campus: 'UR Huye',
+      isVerified: true,
+      phone: '+250788100001',
+      avatarUrl: 'https://via.placeholder.com/100?text=AU',
+      reviews: [
+        Review(
+          id: 'r1',
+          createdAt: DateTime(2024, 3, 10),
+          reviewerId: 'u2',
+          sellerId: 'u1',
+          productId: 'p1',
+          rating: 5.0,
+          comment: 'Great seller! Item exactly as described.',
+        ),
+        Review(
+          id: 'r2',
+          createdAt: DateTime(2024, 4, 2),
+          reviewerId: 'u3',
+          sellerId: 'u1',
+          productId: 'p3',
+          rating: 4.5,
+          comment: 'Fast response and smooth transaction.',
+        ),
+      ],
+    ),
+    User(
+      id: 'u2',
+      createdAt: DateTime(2024, 2, 20),
+      fullName: 'Jean Paul Hakizimana',
+      email: 'jphakizimana@ur.ac.rw',
+      campus: 'UR Nyarugenge',
+      isVerified: false,
+      phone: '+250788100002',
+    ),
+    User(
+      id: 'u3',
+      createdAt: DateTime(2024, 3, 5),
+      fullName: 'Grace Ineza',
+      email: 'grace.ineza@ur.ac.rw',
+      campus: 'UR Muhanga',
+      isVerified: true,
+      avatarUrl: 'https://via.placeholder.com/100?text=GI',
+      reviews: [
+        Review(
+          id: 'r3',
+          createdAt: DateTime(2024, 4, 15),
+          reviewerId: 'u1',
+          sellerId: 'u3',
+          productId: 'p4',
+          rating: 4.0,
+          comment: 'Nice dress, good quality for the price.',
+        ),
+      ],
+    ),
+  ];
+
+  // A3: List collection of Review objects (flat list for cross-seller queries)
+  static final List<Review> reviews = [
+    Review(
+      id: 'r1',
+      createdAt: DateTime(2024, 3, 10),
+      reviewerId: 'u2',
+      sellerId: 'u1',
+      productId: 'p1',
+      rating: 5.0,
+      comment: 'Great seller! Item exactly as described.',
+    ),
+    Review(
+      id: 'r2',
+      createdAt: DateTime(2024, 4, 2),
+      reviewerId: 'u3',
+      sellerId: 'u1',
+      productId: 'p3',
+      rating: 4.5,
+      comment: 'Fast response and smooth transaction.',
+    ),
+    Review(
+      id: 'r3',
+      createdAt: DateTime(2024, 4, 15),
+      reviewerId: 'u1',
+      sellerId: 'u3',
+      productId: 'p4',
+      rating: 4.0,
+      comment: 'Nice dress, good quality for the price.',
+    ),
+  ];
+}
