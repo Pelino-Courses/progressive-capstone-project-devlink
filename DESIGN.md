@@ -101,3 +101,20 @@ PreLoved Market's visual identity is rooted in warmth and sustainability. We cho
 The **Warm Linen** background gives the app a soft, fabric-like warmth that feels distinct from the harsh white backgrounds of typical e-commerce apps. This deliberate choice reinforces the "pre-loved" identity — items with history and personality, not sterile factory goods. **Poppins** was selected as the typeface for its clean geometry and friendly roundness, which balances readability with a modern, youthful feel appropriate for a campus audience.
 
 Card components use generous corner radii (16px) and subtle borders rather than heavy drop shadows, creating a light, breathable interface that lets product photos take centre stage. Condition badges use colour-coded backgrounds drawn from the palette, making quality assessment instant and visual — directly addressing the trust and transparency friction identified in our field research with Emmanuel and Kaneza Devine.
+
+---
+
+## Currency & Localization
+
+* All prices are displayed in **Rwandan Franc (RWF)** to reflect the local campus context.
+* Price format: `8,000 RWF` (no currency symbols or icons are used).
+* This improves clarity and ensures familiarity for student users.
+* Numbers are formatted with commas for readability (e.g., 12,500 RWF instead of 12500).
+
+This decision supports usability and aligns the app with real-world student buying behavior in Rwanda.
+
+---
+
+## Key UX Focus
+
+The design prioritizes simplicity and speed, allowing users to quickly browse items, view details, and contact sellers without unnecessary steps. The interface reduces cognitive load by keeping layouts clean and consistent across all screens.
