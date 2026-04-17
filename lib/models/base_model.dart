@@ -15,5 +15,5 @@ abstract class BaseModel {
   Map<String, dynamic> toMap();
 
   @override
-  String toString() => '${runtimeType}(id: $id)';
+  String toString() => '$runtimeType(id: $id)';
 }

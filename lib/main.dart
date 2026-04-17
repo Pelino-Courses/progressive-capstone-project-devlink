@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart'; // 👈 connect your screen
+import 'utils/helpers.dart'; // Importing our utility functions
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           seedColor: Colors.indigo,
         ),
       ),
-      home: const HomeScreen(), // 👈 THIS IS THE IMPORTANT PART
+      // home: const HomeScreen(), // 👈 THIS IS THE IMPORTANT PART
     );
   }
 }
