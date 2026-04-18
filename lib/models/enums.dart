@@ -1,4 +1,3 @@
-/// Product categories available in PreLoved Market.
 enum ProductCategory {
   clothes('Clothes'),
   shoes('Shoes'),
@@ -8,7 +7,6 @@ enum ProductCategory {
   const ProductCategory(this.label);
 }
 
-/// Condition rating for second-hand items.
 enum ProductCondition {
   likeNew('Like New'),
   good('Good'),

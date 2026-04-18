@@ -3,10 +3,7 @@ import '../models/user.dart';
 import '../models/review.dart';
 import '../models/enums.dart';
 
-/// Static dummy data for simulating a backend data source.
-/// Used by [ProductService] to return sample products, users, and reviews.
 class DummyData {
-  // A3: List collection of Product objects
   static final List<Product> products = [
     Product(
       id: 'p1',
@@ -17,7 +14,7 @@ class DummyData {
       category: ProductCategory.clothes,
       condition: ProductCondition.likeNew,
       size: 'M',
-      imageUrls: ['https://via.placeholder.com/300x400?text=Denim+Jacket'],
+      imageUrls: ['assets/jacket.png'],
       sellerId: 'u1',
       location: 'Nyarugenge, Kigali',
       measurements: 'Chest: 96cm, Length: 62cm',
@@ -31,7 +28,7 @@ class DummyData {
       category: ProductCategory.shoes,
       condition: ProductCondition.good,
       size: '42',
-      imageUrls: ['https://via.placeholder.com/300x400?text=White+Sneakers'],
+      imageUrls: ['assets/white sneakers.png'],
       sellerId: 'u2',
       location: 'Gasabo, Kigali',
     ),
@@ -44,7 +41,7 @@ class DummyData {
       category: ProductCategory.accessories,
       condition: ProductCondition.likeNew,
       size: 'One Size',
-      imageUrls: ['https://via.placeholder.com/300x400?text=Leather+Handbag'],
+      imageUrls: ['assets/hand bag.png'],
       sellerId: 'u1',
       location: 'Kicukiro, Kigali',
     ),
@@ -57,7 +54,7 @@ class DummyData {
       category: ProductCategory.clothes,
       condition: ProductCondition.good,
       size: 'S',
-      imageUrls: ['https://via.placeholder.com/300x400?text=Floral+Dress'],
+      imageUrls: ['assets/floral summer dress.png'],
       sellerId: 'u3',
       location: 'Muhanga, Southern Province',
       measurements: 'Bust: 82cm, Waist: 68cm, Length: 95cm',
@@ -71,13 +68,12 @@ class DummyData {
       category: ProductCategory.accessories,
       condition: ProductCondition.fair,
       size: '90cm',
-      imageUrls: ['https://via.placeholder.com/300x400?text=Leather+Belt'],
+      imageUrls: ['assets/belt.png'],
       sellerId: 'u2',
       location: 'Gasabo, Kigali',
     ),
   ];
 
-  // A3: List collection of User objects
   static final List<User> users = [
     User(
       id: 'u1',
@@ -87,7 +83,7 @@ class DummyData {
       campus: 'UR Huye',
       isVerified: true,
       phone: '+250788100001',
-      avatarUrl: 'https://via.placeholder.com/100?text=AU',
+      avatarUrl: 'assets/images/avatar_amina.png',
       reviews: [
         Review(
           id: 'r1',
@@ -125,7 +121,7 @@ class DummyData {
       email: 'grace.ineza@ur.ac.rw',
       campus: 'UR Muhanga',
       isVerified: true,
-      avatarUrl: 'https://via.placeholder.com/100?text=GI',
+      avatarUrl: 'assets/images/avatar_grace.png',
       reviews: [
         Review(
           id: 'r3',
@@ -140,7 +136,6 @@ class DummyData {
     ),
   ];
 
-  // A3: List collection of Review objects (flat list for cross-seller queries)
   static final List<Review> reviews = [
     Review(
       id: 'r1',

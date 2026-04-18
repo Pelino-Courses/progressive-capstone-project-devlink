@@ -3,14 +3,6 @@ import '../models/product.dart';
 import '../models/enums.dart';
 import '../theme/app_theme.dart';
 
-/// Custom reusable widget for displaying a product listing card.
-/// (C3: Custom widget that accepts parameters, used in 2+ places)
-///
-/// Used in:
-/// - HomeScreen: product grid
-/// - SearchResults: filtered product list
-///
-/// Accepts [product] data and an [onTap] callback for navigation.
 class ProductCard extends StatelessWidget {
   final Product product;
   final VoidCallback? onTap;
@@ -25,16 +17,12 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      // C4: Card — Material Design component
       child: Card(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Product image with condition badge overlay
-            // C2: Stack layout — image with badge on top
             Stack(
               children: [
-                // Product image
                 ClipRRect(
                   borderRadius:
                       const BorderRadius.vertical(top: Radius.circular(16)),
@@ -74,7 +62,6 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
 
-                // Condition badge — positioned top-right
                 Positioned(
                   top: 8,
                   right: 8,
@@ -83,13 +70,11 @@ class ProductCard extends StatelessWidget {
               ],
             ),
 
-            // Product info section
             Padding(
               padding: const EdgeInsets.all(12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Product title
                   Text(
                     product.title,
                     style: Theme.of(context).textTheme.titleMedium,
@@ -97,8 +82,6 @@ class ProductCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 4),
-
-                  // Price
                   Text(
                     product.formattedPrice,
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -107,9 +90,6 @@ class ProductCard extends StatelessWidget {
                         ),
                   ),
                   const SizedBox(height: 6),
-
-                  // Size and time info
-                  // C2: Row layout
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -132,9 +112,7 @@ class ProductCard extends StatelessWidget {
     );
   }
 
-  /// Returns the appropriate icon for each product category.
   IconData _getCategoryIcon(ProductCategory category) {
-    // A4: Switch expression
     return switch (category) {
       ProductCategory.clothes => Icons.checkroom,
       ProductCategory.shoes => Icons.sports_handball,
@@ -143,14 +121,7 @@ class ProductCard extends StatelessWidget {
   }
 }
 
-// ──────────────────────────────────────────────
-// Second reusable widget: ConditionBadge
-// Also used independently in ProductDetailScreen
-// ──────────────────────────────────────────────
 
-/// Reusable condition badge widget.
-/// Displays the item condition with colour-coded background.
-/// Used in [ProductCard] and [ProductDetailScreen].
 class ConditionBadge extends StatelessWidget {
   final ProductCondition condition;
   final double fontSize;
