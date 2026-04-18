@@ -42,21 +42,35 @@ class ProductCard extends StatelessWidget {
                     height: 140,
                     width: double.infinity,
                     color: AppTheme.outline.withValues(alpha: 0.3),
-                    child: Image.network(
-                      product.imageUrls.first,
-                      height: 140,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Center(
-                          child: Icon(
-                            _getCategoryIcon(product.category),
-                            size: 48,
-                            color: AppTheme.onSurfaceVariant,
+                    child: product.imageUrls.first.startsWith('http')
+                        ? Image.network(
+                            product.imageUrls.first,
+                            height: 140,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) =>
+                                Center(
+                              child: Icon(
+                                _getCategoryIcon(product.category),
+                                size: 48,
+                                color: AppTheme.onSurfaceVariant,
+                              ),
+                            ),
+                          )
+                        : Image.asset(
+                            product.imageUrls.first,
+                            height: 140,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) =>
+                                Center(
+                              child: Icon(
+                                _getCategoryIcon(product.category),
+                                size: 48,
+                                color: AppTheme.onSurfaceVariant,
+                              ),
+                            ),
                           ),
-                        );
-                      },
-                    ),
                   ),
                 ),
 

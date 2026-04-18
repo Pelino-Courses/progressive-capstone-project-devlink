@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'theme/app_theme.dart';
 import 'screens/home_screen.dart';
 import 'screens/product_detail_screen.dart';
-import 'theme/app_theme.dart';
+import 'screens/add_listing_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,16 +17,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'PreLoved Market',
       theme: AppTheme.theme,
-      home: const HomeScreen(),
+      initialRoute: '/',
       routes: {
+        '/': (context) => const HomeScreen(),
         '/product-detail': (context) => const ProductDetailScreen(),
+        '/add-listing': (context) => const AddListingScreen(),
       },
-      onUnknownRoute: (settings) => MaterialPageRoute(
-        builder: (context) => Scaffold(
-          appBar: AppBar(title: const Text('Coming Soon')),
-          body: const Center(child: Text('This feature is coming soon!')),
-        ),
-      ),
     );
   }
 }

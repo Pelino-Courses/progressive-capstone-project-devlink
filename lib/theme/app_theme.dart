@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// PreLoved Market Theme — Material Design 3
-/// Maps directly from DESIGN.md colour palette.
-/// (C4: Material Design 3 theme with ColorScheme and TextTheme)
 class AppTheme {
   AppTheme._(); // Private constructor — utility class
 
@@ -55,50 +52,41 @@ class AppTheme {
   );
 
   // ──────────────────────────────────────────────
-  // TextTheme — Poppins font family
+  // TextTheme
   // ──────────────────────────────────────────────
-
-  static const String _fontFamily = 'Poppins';
 
   static const TextTheme textTheme = TextTheme(
     displayLarge: TextStyle(
-      fontFamily: _fontFamily,
       fontWeight: FontWeight.w700,
       fontSize: 28,
       color: onBackground,
     ),
     headlineMedium: TextStyle(
-      fontFamily: _fontFamily,
       fontWeight: FontWeight.w600,
       fontSize: 22,
       color: onBackground,
     ),
     titleMedium: TextStyle(
-      fontFamily: _fontFamily,
       fontWeight: FontWeight.w600,
       fontSize: 16,
       color: onBackground,
     ),
     bodyLarge: TextStyle(
-      fontFamily: _fontFamily,
       fontWeight: FontWeight.w400,
       fontSize: 16,
       color: onBackground,
     ),
     bodyMedium: TextStyle(
-      fontFamily: _fontFamily,
       fontWeight: FontWeight.w400,
       fontSize: 14,
       color: onBackground,
     ),
     labelLarge: TextStyle(
-      fontFamily: _fontFamily,
       fontWeight: FontWeight.w500,
       fontSize: 14,
       color: onBackground,
     ),
     labelSmall: TextStyle(
-      fontFamily: _fontFamily,
       fontWeight: FontWeight.w400,
       fontSize: 12,
       color: onSurfaceVariant,
@@ -113,7 +101,6 @@ class AppTheme {
         useMaterial3: true, // C4: Material Design 3 enabled
         colorScheme: colorScheme,
         textTheme: textTheme,
-        fontFamily: _fontFamily,
         scaffoldBackgroundColor: background,
 
         // AppBar theme
@@ -123,7 +110,6 @@ class AppTheme {
           elevation: 0,
           centerTitle: true,
           titleTextStyle: TextStyle(
-            fontFamily: _fontFamily,
             fontWeight: FontWeight.w600,
             fontSize: 18,
             color: onPrimary,
@@ -150,7 +136,6 @@ class AppTheme {
               borderRadius: BorderRadius.circular(12), // 12px corner radius
             ),
             textStyle: const TextStyle(
-              fontFamily: _fontFamily,
               fontWeight: FontWeight.w500,
               fontSize: 14,
             ),
@@ -167,7 +152,6 @@ class AppTheme {
             ),
             side: const BorderSide(color: primary),
             textStyle: const TextStyle(
-              fontFamily: _fontFamily,
               fontWeight: FontWeight.w500,
               fontSize: 14,
             ),
@@ -197,17 +181,14 @@ class AppTheme {
             borderSide: const BorderSide(color: error),
           ),
           labelStyle: const TextStyle(
-            fontFamily: _fontFamily,
             fontSize: 14,
             color: onSurfaceVariant,
           ),
           hintStyle: const TextStyle(
-            fontFamily: _fontFamily,
             fontSize: 14,
             color: onSurfaceVariant,
           ),
           errorStyle: const TextStyle(
-            fontFamily: _fontFamily,
             fontSize: 12,
             color: error,
           ),
@@ -220,12 +201,10 @@ class AppTheme {
           unselectedItemColor: onSurfaceVariant,
           type: BottomNavigationBarType.fixed,
           selectedLabelStyle: TextStyle(
-            fontFamily: _fontFamily,
             fontWeight: FontWeight.w500,
             fontSize: 12,
           ),
           unselectedLabelStyle: TextStyle(
-            fontFamily: _fontFamily,
             fontSize: 12,
           ),
         ),
@@ -235,7 +214,6 @@ class AppTheme {
           backgroundColor: surface,
           selectedColor: primaryContainer,
           labelStyle: const TextStyle(
-            fontFamily: _fontFamily,
             fontSize: 14,
             color: onBackground,
           ),

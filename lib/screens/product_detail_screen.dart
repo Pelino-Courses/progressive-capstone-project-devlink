@@ -133,19 +133,25 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           width: double.infinity,
           margin: const EdgeInsets.only(left: 8),
           color: AppTheme.outline.withValues(alpha: 0.3),
-          child: Image.network(
-            product.imageUrls.first,
-            fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) {
-              return Center(
-                child: Icon(
-                  Icons.image_outlined,
-                  size: 80,
-                  color: AppTheme.onSurfaceVariant,
+          child: product.imageUrls.first.startsWith('http')
+              ? Image.network(
+                  product.imageUrls.first,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => const Center(
+                    child: Icon(Icons.image_outlined, size: 80),
+                  ),
+                )
+              : Image.asset(
+                  product.imageUrls.first,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Center(
+                    child: Icon(
+                      Icons.image_outlined,
+                      size: 80,
+                      color: AppTheme.onSurfaceVariant,
+                    ),
+                  ),
                 ),
-              );
-            },
-          ),
         ),
       ],
     );
