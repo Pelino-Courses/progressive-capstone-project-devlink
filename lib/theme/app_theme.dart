@@ -10,14 +10,14 @@ class AppTheme {
   static const Color primary = Color(0xFF2D6A4F);           // Forest Green
   static const Color primaryContainer = Color(0xFFB7E4C7);  // Soft Sage
   static const Color secondary = Color(0xFFC17754);         // Warm Terracotta
-  static const Color secondaryContainer = Color(0xFFFADED3); // Peach Cream
-  static const Color background = Color(0xFFFDF6EC);        // Warm Linen
-  static const Color surface = Color(0xFFFFFFFF);           // Off White
-  static const Color onPrimary = Color(0xFFFFFFFF);         // White
-  static const Color onBackground = Color(0xFF2C2C2C);     // Charcoal Brown
-  static const Color onSurfaceVariant = Color(0xFF6B7B6E); // Muted Olive
-  static const Color error = Color(0xFFC0392B);             // Warm Red
-  static const Color outline = Color(0xFFD5CDBA);           // Soft Grey
+  static const Color secondaryContainer = Color(0xFFFADED3);
+  static const Color background = Color(0xFFFDF6EC);
+  static const Color surface = Color(0xFFFFFFFF);
+  static const Color onPrimary = Color(0xFFFFFFFF);
+  static const Color onBackground = Color(0xFF2C2C2C);
+  static const Color onSurfaceVariant = Color(0xFF6B7B6E);
+  static const Color error = Color(0xFFC0392B);
+  static const Color outline = Color(0xFFD5CDBA);
 
   // Condition badge colors
   static const Color conditionLikeNew = Color(0xFFB7E4C7);
@@ -98,12 +98,11 @@ class AppTheme {
   // ──────────────────────────────────────────────
 
   static ThemeData get theme => ThemeData(
-        useMaterial3: true, // C4: Material Design 3 enabled
+        useMaterial3: true,
         colorScheme: colorScheme,
         textTheme: textTheme,
         scaffoldBackgroundColor: background,
 
-        // AppBar theme
         appBarTheme: const AppBarTheme(
           backgroundColor: primary,
           foregroundColor: onPrimary,
@@ -116,24 +115,22 @@ class AppTheme {
           ),
         ),
 
-        // Card theme — matches DESIGN.md component styles
         cardTheme: CardThemeData(
           color: surface,
           elevation: 1,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16), // 16px corner radius
+            borderRadius: BorderRadius.circular(16),
             side: const BorderSide(color: outline, width: 1),
           ),
         ),
 
-        // ElevatedButton theme — primary button style
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: primary,
             foregroundColor: onPrimary,
-            minimumSize: const Size(double.infinity, 48), // 48px height
+            minimumSize: const Size(double.infinity, 48),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12), // 12px corner radius
+              borderRadius: BorderRadius.circular(12),
             ),
             textStyle: const TextStyle(
               fontWeight: FontWeight.w500,

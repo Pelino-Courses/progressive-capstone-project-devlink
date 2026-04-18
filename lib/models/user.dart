@@ -2,23 +2,17 @@ import 'base_model.dart';
 import 'review.dart';
 import '../mixins/rateable.dart';
 
-/// Represents a user (buyer or seller) in PreLoved Market.
-/// Extends [BaseModel] for shared fields (B2: Inheritance).
-/// Uses [Rateable] mixin for rating functionality (B3: Mixin).
 class User extends BaseModel with Rateable {
   final String fullName;
   final String email;
   final String campus;
   final bool isVerified;
 
-  // A1: Nullable types — optional user info
   final String? phone;
   final String? avatarUrl;
 
-  // A1: Mutable list for reviews (used by Rateable mixin)
   final List<Review> _reviews;
 
-  // B4: Constructor with named parameters, defaults, and required
   User({
     required super.id,
     required super.createdAt,
@@ -29,9 +23,8 @@ class User extends BaseModel with Rateable {
     this.phone,
     this.avatarUrl,
     List<Review>? reviews,
-  }) : _reviews = reviews ?? []; // A1: Null coalescing operator (??)
+  }) : _reviews = reviews ?? [];
 
-  /// B3: Implementing Rateable mixin — provides reviews list
   @override
   List<Review> get reviews => _reviews;
 
@@ -40,8 +33,6 @@ class User extends BaseModel with Rateable {
     _reviews.add(review);
   }
 
-  /// Returns the user's display name (first name only).
-  /// A2: Arrow syntax function
   String get displayName => fullName.split(' ').first;
 
   /// Returns the user's initials for avatar placeholder.
@@ -53,8 +44,6 @@ class User extends BaseModel with Rateable {
         : parts.first[0].toUpperCase();
   }
 
-  /// Checks if the user has a profile picture.
-  /// A1: Null-safe check with nullable type
   bool get hasAvatar => avatarUrl != null && avatarUrl!.isNotEmpty;
 
   @override

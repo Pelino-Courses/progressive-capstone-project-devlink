@@ -3,10 +3,7 @@ import '../models/user.dart';
 import '../models/review.dart';
 import '../models/enums.dart';
 
-/// Static dummy data for simulating a backend data source.
-/// Used by [ProductService] to return sample products, users, and reviews.
 class DummyData {
-  // A3: List collection of Product objects
   static final List<Product> products = [
     Product(
       id: 'p1',
@@ -77,7 +74,6 @@ class DummyData {
     ),
   ];
 
-  // A3: List collection of User objects
   static final List<User> users = [
     User(
       id: 'u1',
@@ -140,7 +136,6 @@ class DummyData {
     ),
   ];
 
-  // A3: List collection of Review objects (flat list for cross-seller queries)
   static final List<Review> reviews = [
     Review(
       id: 'r1',

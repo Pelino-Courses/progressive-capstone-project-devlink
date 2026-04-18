@@ -5,8 +5,6 @@ import '../services/product_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/product_card.dart';
 
-/// Product Detail Screen — shows full information about a product listing.
-/// Receives a [Product] object via route arguments (D2: Data passing).
 class ProductDetailScreen extends StatefulWidget {
   const ProductDetailScreen({super.key});
 
@@ -17,7 +15,6 @@ class ProductDetailScreen extends StatefulWidget {
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   final ProductService _productService = ProductService();
 
-  // A1: Nullable variable — seller loaded async
   User? _seller;
   bool _isLoadingSeller = true;
 
@@ -27,7 +24,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     _loadSeller();
   }
 
-  /// Loads the seller profile (B5: async/await)
   Future<void> _loadSeller() async {
     final product = ModalRoute.of(context)!.settings.arguments as Product;
     final seller = await _productService.fetchSellerById(product.sellerId);
@@ -42,12 +38,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // D2: Receiving data passed via route arguments
     final product = ModalRoute.of(context)!.settings.arguments as Product;
 
     return Scaffold(
       backgroundColor: AppTheme.background,
-      // C2: Column layout — vertical screen structure
       body: SafeArea(
         child: Column(
           children: [
@@ -57,25 +51,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // ── Top navigation bar ──
-                    _buildTopBar(context),
-
-                    // ── Product image ──
-                    _buildProductImage(product),
-
-                    // ── Seller info ──
-                    _buildSellerInfo(context, product),
-
-                    // ── Product details ──
-                    _buildProductDetails(context, product),
-
-                    // ── Description ──
-                    _buildDescription(context, product),
-
-                    // ── Posted date ──
-                    _buildPostedDate(context, product),
-
-                    const SizedBox(height: 16),
+                  _buildTopBar(context),
+                  _buildProductImage(product),
+                  _buildSellerInfo(context, product),
+                  _buildProductDetails(context, product),
+                  _buildDescription(context, product),
                   ],
                 ),
               ),
@@ -89,15 +69,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     );
   }
 
-  /// Custom top bar with back and share buttons
   Widget _buildTopBar(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-      // C2: Row layout — back button + spacer + share button
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // D5: Back navigation with Navigator.pop
           IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back, color: AppTheme.primary),
@@ -111,12 +88,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     );
   }
 
-  /// Product image with left accent strip
   Widget _buildProductImage(Product product) {
-    // C2: Stack — image with decorative side strip
     return Stack(
       children: [
-        // Left accent strip
         Positioned(
           left: 0,
           top: 0,
@@ -157,7 +131,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     );
   }
 
-  /// Seller information bar with rating
   Widget _buildSellerInfo(BuildContext context, Product product) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),

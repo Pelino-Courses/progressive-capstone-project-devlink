@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import '../models/enums.dart';
 import '../theme/app_theme.dart';
 
-/// Add Listing Form Screen — allows sellers to post new items.
-/// (D3: Form with `GlobalKey<FormState>`, validators, form.validate())
-/// (D4: 4+ fields with meaningful validation including format/length/pattern)
 class AddListingScreen extends StatefulWidget {
   const AddListingScreen({super.key});
 
@@ -13,17 +10,14 @@ class AddListingScreen extends StatefulWidget {
 }
 
 class _AddListingScreenState extends State<AddListingScreen> {
-  // D3: GlobalKey<FormState> for form validation
   final _formKey = GlobalKey<FormState>();
 
-  // A1: Variables with explicit types
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _priceController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _locationController = TextEditingController();
   final TextEditingController _sizeController = TextEditingController();
 
-  // A1: Nullable variables for dropdown selections
   ProductCategory? _selectedCategory;
   ProductCondition? _selectedCondition;
 
@@ -37,9 +31,7 @@ class _AddListingScreenState extends State<AddListingScreen> {
     super.dispose();
   }
 
-  /// Handles form submission
   void _submitForm() {
-    // D3: Calling form.validate() before processing
     if (_formKey.currentState!.validate()) {
       // Additional dropdown validation
       if (_selectedCategory == null) {
@@ -71,8 +63,8 @@ class _AddListingScreenState extends State<AddListingScreen> {
           actions: [
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context); // Close dialog
-                Navigator.pop(context); // D5: Return to previous screen
+                Navigator.pop(context);
+                Navigator.pop(context);
               },
               child: const Text('Back to Home'),
             ),
@@ -98,7 +90,7 @@ class _AddListingScreenState extends State<AddListingScreen> {
       // C4: AppBar — Material Design component
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () => Navigator.pop(context), // D5: Back navigation
+          onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.close),
         ),
         title: const Row(
@@ -128,17 +120,13 @@ class _AddListingScreenState extends State<AddListingScreen> {
 
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
-        // D3: Form widget with GlobalKey
         child: Form(
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // ── Photo Upload Area ──
               _buildPhotoUpload(),
               const SizedBox(height: 24),
-
-              // ── Field 1: Title (D4: validation with length check) ──
               _buildFieldLabel('Title'),
               const SizedBox(height: 6),
               TextFormField(
