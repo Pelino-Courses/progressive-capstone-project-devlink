@@ -41,13 +41,12 @@ class ProductCard extends StatelessWidget {
                   child: Container(
                     height: 140,
                     width: double.infinity,
-                    color: AppTheme.outline.withOpacity(0.3),
-                    child: Image.asset(
+                    color: AppTheme.outline.withValues(alpha: 0.3),
+                    child: Image.network(
                       product.imageUrls.first,
                       height: 140,
                       width: double.infinity,
                       fit: BoxFit.cover,
-                      // Fallback if image doesn't exist
                       errorBuilder: (context, error, stackTrace) {
                         return Center(
                           child: Icon(

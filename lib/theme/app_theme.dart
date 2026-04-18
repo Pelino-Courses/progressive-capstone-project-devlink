@@ -131,7 +131,7 @@ class AppTheme {
         ),
 
         // Card theme — matches DESIGN.md component styles
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           color: surface,
           elevation: 1,
           shape: RoundedRectangleBorder(

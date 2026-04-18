@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'utils/helpers.dart'; // Importing our utility functions
+import 'screens/home_screen.dart';
+import 'screens/product_detail_screen.dart';
+import 'theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,12 +15,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PreLoved Market',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.indigo,
+      theme: AppTheme.theme,
+      home: const HomeScreen(),
+      routes: {
+        '/product-detail': (context) => const ProductDetailScreen(),
+      },
+      onUnknownRoute: (settings) => MaterialPageRoute(
+        builder: (context) => Scaffold(
+          appBar: AppBar(title: const Text('Coming Soon')),
+          body: const Center(child: Text('This feature is coming soon!')),
         ),
       ),
-      // home: const HomeScreen(), // 👈 THIS IS THE IMPORTANT PART
     );
   }
 }

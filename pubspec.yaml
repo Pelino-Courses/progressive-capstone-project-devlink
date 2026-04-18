@@ -14,22 +14,19 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
   uses-material-design: true
 
-  assets:
-    - assets/images/
-
   fonts:
     - family: Poppins
       fonts:
-        - asset: fonts/Poppins-Regular.ttf
+        - asset: lib/fonts/Poppins-Regular.ttf
           weight: 400
-        - asset: fonts/Poppins-Medium.ttf
+        - asset: lib/fonts/Poppins-Medium.ttf
           weight: 500
-        - asset: fonts/Poppins-SemiBold.ttf
+        - asset: lib/fonts/Poppins-SemiBold.ttf
           weight: 600
-        - asset: fonts/Poppins-Bold.ttf
+        - asset: lib/fonts/Poppins-Bold.ttf
           weight: 700

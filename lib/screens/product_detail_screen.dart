@@ -132,8 +132,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           height: 280,
           width: double.infinity,
           margin: const EdgeInsets.only(left: 8),
-          color: AppTheme.outline.withOpacity(0.3),
-          child: Image.asset(
+          color: AppTheme.outline.withValues(alpha: 0.3),
+          child: Image.network(
             product.imageUrls.first,
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) {
@@ -226,7 +226,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Divider
-          Divider(color: AppTheme.outline.withOpacity(0.5)),
+          Divider(color: AppTheme.outline.withValues(alpha: 0.5)),
           const SizedBox(height: 8),
 
           // Product title
@@ -322,7 +322,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       decoration: BoxDecoration(
         color: AppTheme.surface,
         border: Border(
-          top: BorderSide(color: AppTheme.outline.withOpacity(0.5)),
+          top: BorderSide(color: AppTheme.outline.withValues(alpha: 0.5)),
         ),
       ),
       child: Column(
