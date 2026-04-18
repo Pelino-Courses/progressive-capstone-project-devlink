@@ -15,7 +15,7 @@ PreLoved Market is a mobile app that connects students within the campus communi
 
 ### Team Members & Contributions
 
-- **Asifiwe Afisa**  Project Lead, UI/UX Designer
+- **Asifiwe Afisa Uwitonze**  Project Lead, UI/UX Designer
   - Field research & user interview (Emmanuel)
   - DESIGN.md and Google Stitch mockups
   - Section A: Dart fundamentals (helpers.dart, dummy_data.dart)
@@ -24,7 +24,7 @@ PreLoved Market is a mobile app that connects students within the campus communi
   - Project setup (fonts, assets, pubspec configuration)
   - GitHub repository management
 
-- **[Teammate Name]** — Research Lead, Documentation Lead
+- **Diane Uwamariya** — Research Lead, Documentation Lead
   - Field research & user interview (Kaneza Devine)
   - Section B: Data models (User, Review, Rateable mixin)
   - Section D: Navigation setup (main.dart, named routes, data passing)
@@ -195,7 +195,7 @@ Full design system details are in [DESIGN.md](DESIGN.md).
 
 **YouTube Link:** [Insert unlisted YouTube URL here]
 
-**Video Title Format:** `[MAD] Mini-Capstone Parts A-D — PreLoved Market — Asifiwe Afisa & [Teammate Name]`
+**Video Title Format:** `[MAD] Mini-Capstone Parts A-D — PreLoved Market — Asifiwe Afisa Uwitonze & Diane Uwamariya`
 
 
 
