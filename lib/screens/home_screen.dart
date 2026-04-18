@@ -241,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(
               'in no time. easy access!',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppTheme.onPrimary.withOpacity(0.85),
+                    color: AppTheme.onPrimary.withValues(alpha: 0.85),
                   ),
             ),
           ],
