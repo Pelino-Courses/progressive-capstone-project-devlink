@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// PreLoved Market Theme — Material Design 3
-/// Maps directly from DESIGN.md colour palette.
-/// (C4: Material Design 3 theme with ColorScheme and TextTheme)
 class AppTheme {
   AppTheme._(); // Private constructor — utility class
 
