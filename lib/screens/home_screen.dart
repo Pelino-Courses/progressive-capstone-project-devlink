@@ -154,14 +154,12 @@ class _HomeScreenState extends State<HomeScreen> {
       child: GestureDetector(
         onTap: () {},
         child: Container(
-        child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           decoration: BoxDecoration(
             color: AppTheme.surface,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: AppTheme.outline),
           ),
-
           child: Row(
             children: [
               const Icon(Icons.search, color: AppTheme.onSurfaceVariant),
