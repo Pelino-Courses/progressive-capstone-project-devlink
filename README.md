@@ -193,7 +193,7 @@ Full design system details are in [DESIGN.md](DESIGN.md).
 
 ##  Video Demo
 
-**YouTube Link:** [Insert unlisted YouTube URL here]
+**YouTube Link:** https://youtu.be/m-o-ZCRqgdw
 
 **Video Title Format:** `[MAD] Mini-Capstone Parts A-D — PreLoved Market — Asifiwe Afisa Uwitonze & Diane Uwamariya`
 
