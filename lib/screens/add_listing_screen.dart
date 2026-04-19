@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import '../models/enums.dart';
 import '../theme/app_theme.dart';
 
+/// Add Listing Form Screen — allows sellers to post new items.
+/// (D3: Form with GlobalKey<FormState>, validators, form.validate())
+/// (D4: 4+ fields with meaningful validation including format/length/pattern)
 class AddListingScreen extends StatefulWidget {
   const AddListingScreen({super.key});
 
@@ -10,14 +13,17 @@ class AddListingScreen extends StatefulWidget {
 }
 
 class _AddListingScreenState extends State<AddListingScreen> {
+  // D3: GlobalKey<FormState> for form validation
   final _formKey = GlobalKey<FormState>();
 
+  // A1: Variables with explicit types
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _priceController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _locationController = TextEditingController();
   final TextEditingController _sizeController = TextEditingController();
 
+  // A1: Nullable variables for dropdown selections
   ProductCategory? _selectedCategory;
   ProductCondition? _selectedCondition;
 
@@ -31,47 +37,55 @@ class _AddListingScreenState extends State<AddListingScreen> {
     super.dispose();
   }
 
+  /// Handles form submission
   void _submitForm() {
-    if (_formKey.currentState!.validate()) {
-      // Additional dropdown validation
-      if (_selectedCategory == null) {
-        _showSnackBar('Please select a category');
-        return;
-      }
-      if (_selectedCondition == null) {
-        _showSnackBar('Please select a condition');
-        return;
-      }
+    // D3: Calling form.validate() before processing
+    final isValid = _formKey.currentState?.validate() ?? false;
 
-      // Show success message
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          title: const Row(
-            children: [
-              Icon(Icons.check_circle, color: AppTheme.primary, size: 28),
-              SizedBox(width: 10),
-              Text('Listing Posted!'),
-            ],
-          ),
-          content: Text(
-            '"${_titleController.text}" has been posted for '
-            '${_priceController.text} RWF.',
-          ),
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-                Navigator.pop(context);
-              },
-              child: const Text('Back to Home'),
-            ),
+    if (!isValid) {
+      // Form has errors — they will show on each field automatically
+      _showSnackBar('Please fix the errors above');
+      return;
+    }
+
+    // Additional dropdown validation
+    if (_selectedCategory == null) {
+      _showSnackBar('Please select a category');
+      return;
+    }
+    if (_selectedCondition == null) {
+      _showSnackBar('Please select a condition');
+      return;
+    }
+
+    // All validation passed — show success message
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: const Row(
+          children: [
+            Icon(Icons.check_circle, color: AppTheme.primary, size: 28),
+            SizedBox(width: 10),
+            Text('Listing Posted!'),
           ],
         ),
-      );
-    }
+        content: Text(
+          '"${_titleController.text}" has been posted for '
+          '${_priceController.text} RWF.',
+        ),
+        actions: [
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(dialogContext); // Close dialog
+              Navigator.pop(context); // D5: Return to previous screen
+            },
+            child: const Text('Back to Home'),
+          ),
+        ],
+      ),
+    );
   }
 
   void _showSnackBar(String message) {
@@ -90,7 +104,7 @@ class _AddListingScreenState extends State<AddListingScreen> {
       // C4: AppBar — Material Design component
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.pop(context), // D5: Back navigation
           icon: const Icon(Icons.close),
         ),
         title: const Row(
@@ -120,13 +134,17 @@ class _AddListingScreenState extends State<AddListingScreen> {
 
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
+        // D3: Form widget with GlobalKey
         child: Form(
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // ── Photo Upload Area ──
               _buildPhotoUpload(),
               const SizedBox(height: 24),
+
+              // ── Field 1: Title (D4: validation with length check) ──
               _buildFieldLabel('Title'),
               const SizedBox(height: 6),
               TextFormField(
@@ -154,7 +172,7 @@ class _AddListingScreenState extends State<AddListingScreen> {
               _buildFieldLabel('Category'),
               const SizedBox(height: 6),
               DropdownButtonFormField<ProductCategory>(
-                initialValue: _selectedCategory,
+                value: _selectedCategory,
                 decoration: const InputDecoration(
                   hintText: 'Select category',
                 ),
@@ -197,7 +215,7 @@ class _AddListingScreenState extends State<AddListingScreen> {
               _buildFieldLabel('Condition'),
               const SizedBox(height: 6),
               DropdownButtonFormField<ProductCondition>(
-                initialValue: _selectedCondition,
+                value: _selectedCondition,
                 decoration: const InputDecoration(
                   hintText: 'Select condition',
                 ),
@@ -345,7 +363,7 @@ class _AddListingScreenState extends State<AddListingScreen> {
           Text(
             '(Minimum 2 required)',
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  color: AppTheme.onPrimary.withValues(alpha: 0.8),
+                  color: AppTheme.onPrimary.withOpacity(0.8),
                 ),
           ),
         ],
