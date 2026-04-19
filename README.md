@@ -61,7 +61,7 @@ flutter run
 ```
 
 ### Flutter Doctor Screenshot
-![Flutter Doctor](flutter_doctor.png)
+![Flutter Doctor](assets/images/flutter_doctor.png)
 
 
 ## Repository Structure
