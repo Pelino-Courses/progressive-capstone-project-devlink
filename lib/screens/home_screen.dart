@@ -55,8 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
     } else {
       return _products
           .where((p) =>
-              p.category.label.toLowerCase() ==
-              _selectedCategory.toLowerCase())
+      p.category.label.toLowerCase() ==
+          _selectedCategory.toLowerCase())
           .toList();
     }
   }
@@ -77,10 +77,10 @@ class _HomeScreenState extends State<HomeScreen> {
             Expanded(
               child: _isLoading
                   ? const Center(
-                      child: CircularProgressIndicator(
-                        color: AppTheme.primary,
-                      ),
-                    )
+                child: CircularProgressIndicator(
+                  color: AppTheme.primary,
+                ),
+              )
                   : _buildProductGrid(context),
             ),
           ],
@@ -89,10 +89,8 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
         onTap: (index) {
-          switch (index) {
-            case 4:
-              Navigator.pushNamed(context, '/add-listing');
-              break;
+          if (index == 4) {
+            Navigator.pushNamed(context, '/add-listing');
           }
         },
         items: const [
@@ -133,7 +131,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-
           const Spacer(),
           IconButton(
             onPressed: () {},
@@ -154,14 +151,12 @@ class _HomeScreenState extends State<HomeScreen> {
       child: GestureDetector(
         onTap: () {},
         child: Container(
-        child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           decoration: BoxDecoration(
             color: AppTheme.surface,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: AppTheme.outline),
           ),
-
           child: Row(
             children: [
               const Icon(Icons.search, color: AppTheme.onSurfaceVariant),
@@ -169,8 +164,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 'Search for clothes, shoes...',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppTheme.onSurfaceVariant,
-                    ),
+                  color: AppTheme.onSurfaceVariant,
+                ),
               ),
             ],
           ),
@@ -197,16 +192,16 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(
               'Get Your FAV',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    color: AppTheme.onPrimary,
-                    fontWeight: FontWeight.w700,
-                  ),
+                color: AppTheme.onPrimary,
+                fontWeight: FontWeight.w700,
+              ),
             ),
             const SizedBox(height: 4),
             Text(
               'in no time. easy access!',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppTheme.onPrimary.withValues(alpha: 0.85),
-                  ),
+                color: AppTheme.onPrimary.withValues(alpha: 0.85),
+              ),
             ),
           ],
         ),
@@ -276,18 +271,18 @@ class _HomeScreenState extends State<HomeScreen> {
           Text(
             "Today's Pick",
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                ),
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+            ),
           ),
           TextButton(
             onPressed: () {},
             child: Text(
               'See all >',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppTheme.secondary,
-                    fontWeight: FontWeight.w500,
-                  ),
+                color: AppTheme.secondary,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
         ],
@@ -308,8 +303,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(
               'No products found in this category',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppTheme.onSurfaceVariant,
-                  ),
+                color: AppTheme.onSurfaceVariant,
+              ),
             ),
           ],
         ),
