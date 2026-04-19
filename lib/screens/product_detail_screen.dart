@@ -56,6 +56,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   _buildSellerInfo(context, product),
                   _buildProductDetails(context, product),
                   _buildDescription(context, product),
+                  _buildPostedDate(context, product),
                   ],
                 ),
               ),

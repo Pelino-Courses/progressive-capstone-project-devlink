@@ -61,7 +61,7 @@ flutter run
 ```
 
 ### Flutter Doctor Screenshot
-> *(Insert your flutter doctor screenshot here)*
+![Flutter Doctor](flutter_doctor.png)
 
 
 ## Repository Structure
