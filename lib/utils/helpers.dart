@@ -34,7 +34,7 @@ class Helpers {
 
   /// Checks if an email is a valid university email.
   static bool isUniversityEmail(String email) =>
-      email.endsWith('@ur.ac.rw') || email.endsWith('@student.ur.ac.rw');
+      email.endsWith('@ur.ac.rw') || email.endsWith('@stud.ur.ac.rw');
 
   // ──────────────────────────────────────────────
   // A2: Function with optional positional parameter

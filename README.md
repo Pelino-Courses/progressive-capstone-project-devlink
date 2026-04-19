@@ -9,7 +9,7 @@ PreLoved Market is a mobile app that connects students within the campus communi
 
 | Item | Details |
 |------|---------|
-| **Team Name** | DevDynasty |
+| **Team Name** | DevLink |
 | **Course** | Mobile Application Development (MAD) — Level 3 |
 | **University** | University of Rwanda |
 

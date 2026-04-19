@@ -172,7 +172,7 @@ class _AddListingScreenState extends State<AddListingScreen> {
               _buildFieldLabel('Category'),
               const SizedBox(height: 6),
               DropdownButtonFormField<ProductCategory>(
-                value: _selectedCategory,
+                initialValue: _selectedCategory,
                 decoration: const InputDecoration(
                   hintText: 'Select category',
                 ),
@@ -215,7 +215,7 @@ class _AddListingScreenState extends State<AddListingScreen> {
               _buildFieldLabel('Condition'),
               const SizedBox(height: 6),
               DropdownButtonFormField<ProductCondition>(
-                value: _selectedCondition,
+                initialValue: _selectedCondition,
                 decoration: const InputDecoration(
                   hintText: 'Select condition',
                 ),
@@ -363,7 +363,7 @@ class _AddListingScreenState extends State<AddListingScreen> {
           Text(
             '(Minimum 2 required)',
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  color: AppTheme.onPrimary.withOpacity(0.8),
+                  color: AppTheme.onPrimary.withValues(alpha: 0.8),
                 ),
           ),
         ],
