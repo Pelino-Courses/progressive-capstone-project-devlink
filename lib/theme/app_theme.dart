@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  AppTheme._(); // Private constructor — utility class
+  AppTheme._();
 
-  // ──────────────────────────────────────────────
-  // DESIGN.md Colour Palette
-  // ──────────────────────────────────────────────
-
-  static const Color primary = Color(0xFF2D6A4F);           // Forest Green
-  static const Color primaryContainer = Color(0xFFB7E4C7);  // Soft Sage
-  static const Color secondary = Color(0xFFC17754);         // Warm Terracotta
+  static const Color primary = Color(0xFF2D6A4F);
+  static const Color primaryContainer = Color(0xFFB7E4C7);
+  static const Color secondary = Color(0xFFC17754);
   static const Color secondaryContainer = Color(0xFFFADED3);
   static const Color background = Color(0xFFFDF6EC);
   static const Color surface = Color(0xFFFFFFFF);
@@ -19,206 +15,76 @@ class AppTheme {
   static const Color error = Color(0xFFC0392B);
   static const Color outline = Color(0xFFD5CDBA);
 
-  // Condition badge colors
   static const Color conditionLikeNew = Color(0xFFB7E4C7);
   static const Color conditionGood = Color(0xFFFADED3);
   static const Color conditionFair = Color(0xFFFFE8CC);
-
   static const Color conditionLikeNewText = Color(0xFF2D6A4F);
   static const Color conditionGoodText = Color(0xFFC17754);
   static const Color conditionFairText = Color(0xFFA0522D);
 
-  // ──────────────────────────────────────────────
-  // Material Design 3 ColorScheme
-  // ──────────────────────────────────────────────
-
-  static const ColorScheme colorScheme = ColorScheme(
-    brightness: Brightness.light,
-    primary: primary,
-    onPrimary: onPrimary,
-    primaryContainer: primaryContainer,
-    onPrimaryContainer: primary,
-    secondary: secondary,
-    onSecondary: onPrimary,
-    secondaryContainer: secondaryContainer,
-    onSecondaryContainer: secondary,
-    surface: surface,
-    onSurface: onBackground,
-    onSurfaceVariant: onSurfaceVariant,
-    error: error,
-    onError: onPrimary,
-    outline: outline,
-    outlineVariant: outline,
-  );
-
-  // ──────────────────────────────────────────────
-  // TextTheme
-  // ──────────────────────────────────────────────
-
-  static const TextTheme textTheme = TextTheme(
-    displayLarge: TextStyle(
-      fontWeight: FontWeight.w700,
-      fontSize: 28,
-      color: onBackground,
-    ),
-    headlineMedium: TextStyle(
-      fontWeight: FontWeight.w600,
-      fontSize: 22,
-      color: onBackground,
-    ),
-    titleMedium: TextStyle(
-      fontWeight: FontWeight.w600,
-      fontSize: 16,
-      color: onBackground,
-    ),
-    bodyLarge: TextStyle(
-      fontWeight: FontWeight.w400,
-      fontSize: 16,
-      color: onBackground,
-    ),
-    bodyMedium: TextStyle(
-      fontWeight: FontWeight.w400,
-      fontSize: 14,
-      color: onBackground,
-    ),
-    labelLarge: TextStyle(
-      fontWeight: FontWeight.w500,
-      fontSize: 14,
-      color: onBackground,
-    ),
-    labelSmall: TextStyle(
-      fontWeight: FontWeight.w400,
-      fontSize: 12,
-      color: onSurfaceVariant,
-    ),
-  );
-
-  // ──────────────────────────────────────────────
-  // Complete ThemeData
-  // ──────────────────────────────────────────────
-
+  // ── LIGHT THEME ──
   static ThemeData get theme => ThemeData(
         useMaterial3: true,
-        colorScheme: colorScheme,
-        textTheme: textTheme,
+        brightness: Brightness.light,
+        colorScheme: const ColorScheme(
+          brightness: Brightness.light, primary: primary, onPrimary: onPrimary,
+          primaryContainer: primaryContainer, onPrimaryContainer: primary,
+          secondary: secondary, onSecondary: onPrimary,
+          secondaryContainer: secondaryContainer, onSecondaryContainer: secondary,
+          surface: surface, onSurface: onBackground, onSurfaceVariant: onSurfaceVariant,
+          error: error, onError: onPrimary, outline: outline, outlineVariant: outline,
+        ),
+        fontFamily: 'Poppins',
         scaffoldBackgroundColor: background,
-
-        appBarTheme: const AppBarTheme(
-          backgroundColor: primary,
-          foregroundColor: onPrimary,
-          elevation: 0,
-          centerTitle: true,
-          titleTextStyle: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 18,
-            color: onPrimary,
-          ),
-        ),
-
-        cardTheme: CardThemeData(
-          color: surface,
-          elevation: 1,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-            side: const BorderSide(color: outline, width: 1),
-          ),
-        ),
-
+        appBarTheme: const AppBarTheme(backgroundColor: primary, foregroundColor: onPrimary, elevation: 0, centerTitle: true),
+        cardTheme: CardThemeData(color: surface, elevation: 1,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16), side: const BorderSide(color: outline, width: 1))),
         elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: primary,
-            foregroundColor: onPrimary,
-            minimumSize: const Size(double.infinity, 48),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 14,
-            ),
-          ),
-        ),
-
-        // OutlinedButton theme
+            style: ElevatedButton.styleFrom(backgroundColor: primary, foregroundColor: onPrimary,
+                minimumSize: const Size(double.infinity, 48), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)))),
         outlinedButtonTheme: OutlinedButtonThemeData(
-          style: OutlinedButton.styleFrom(
-            foregroundColor: primary,
-            minimumSize: const Size(double.infinity, 48),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            side: const BorderSide(color: primary),
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 14,
-            ),
-          ),
-        ),
-
-        // InputDecoration theme — form field styling
-        inputDecorationTheme: InputDecorationTheme(
-          filled: true,
-          fillColor: surface,
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(color: outline),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(color: outline),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(color: primary, width: 2),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(color: error),
-          ),
-          labelStyle: const TextStyle(
-            fontSize: 14,
-            color: onSurfaceVariant,
-          ),
-          hintStyle: const TextStyle(
-            fontSize: 14,
-            color: onSurfaceVariant,
-          ),
-          errorStyle: const TextStyle(
-            fontSize: 12,
-            color: error,
-          ),
-        ),
-
-        // Bottom Navigation Bar theme
+            style: OutlinedButton.styleFrom(foregroundColor: primary, minimumSize: const Size(double.infinity, 48),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)), side: const BorderSide(color: primary))),
+        inputDecorationTheme: InputDecorationTheme(filled: true, fillColor: surface,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: outline)),
+            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: outline)),
+            focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: primary, width: 2)),
+            errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: error))),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: surface,
-          selectedItemColor: primary,
-          unselectedItemColor: onSurfaceVariant,
-          type: BottomNavigationBarType.fixed,
-          selectedLabelStyle: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 12,
-          ),
-          unselectedLabelStyle: TextStyle(
-            fontSize: 12,
-          ),
-        ),
+            backgroundColor: surface, selectedItemColor: primary, unselectedItemColor: onSurfaceVariant, type: BottomNavigationBarType.fixed),
+      );
 
-        // Chip theme — for category filters
-        chipTheme: ChipThemeData(
-          backgroundColor: surface,
-          selectedColor: primaryContainer,
-          labelStyle: const TextStyle(
-            fontSize: 14,
-            color: onBackground,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-            side: const BorderSide(color: outline),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+  // ── DARK THEME ──
+  static ThemeData get darkTheme => ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        colorScheme: ColorScheme(
+          brightness: Brightness.dark,
+          primary: primaryContainer, onPrimary: const Color(0xFF1A1A1A),
+          primaryContainer: primary, onPrimaryContainer: primaryContainer,
+          secondary: const Color(0xFFE8A88A), onSecondary: const Color(0xFF1A1A1A),
+          secondaryContainer: const Color(0xFF5C3A2A), onSecondaryContainer: secondaryContainer,
+          surface: const Color(0xFF1E1E1E), onSurface: const Color(0xFFE0E0E0),
+          onSurfaceVariant: const Color(0xFF9E9E9E),
+          error: const Color(0xFFEF5350), onError: Colors.white,
+          outline: const Color(0xFF3A3A3A), outlineVariant: const Color(0xFF2A2A2A),
         ),
+        fontFamily: 'Poppins',
+        scaffoldBackgroundColor: const Color(0xFF121212),
+        appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF1E1E1E), foregroundColor: Color(0xFFE0E0E0), elevation: 0, centerTitle: true),
+        cardTheme: CardThemeData(color: const Color(0xFF1E1E1E), elevation: 2,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16), side: const BorderSide(color: Color(0xFF3A3A3A), width: 1))),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(backgroundColor: primaryContainer, foregroundColor: const Color(0xFF1A1A1A),
+                minimumSize: const Size(double.infinity, 48), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)))),
+        inputDecorationTheme: InputDecorationTheme(filled: true, fillColor: const Color(0xFF1E1E1E),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: Color(0xFF3A3A3A))),
+            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: Color(0xFF3A3A3A))),
+            focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide(color: primaryContainer, width: 2))),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            backgroundColor: const Color(0xFF1E1E1E), selectedItemColor: primaryContainer,
+            unselectedItemColor: const Color(0xFF9E9E9E), type: BottomNavigationBarType.fixed),
       );
 }

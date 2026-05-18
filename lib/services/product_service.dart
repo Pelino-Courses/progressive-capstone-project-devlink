@@ -1,53 +1,71 @@
+import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../models/product.dart';
-import '../models/user.dart';
-import '../models/review.dart';
-import '../data/dummy_data.dart';
 
 class ProductService {
-  Future<List<Product>> fetchProducts() async {
-    await Future.delayed(const Duration(seconds: 1));
-    return DummyData.products;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseStorage _storage = FirebaseStorage.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  CollectionReference get _products => _firestore.collection('products');
+
+  Stream<List<Product>> getProducts() {
+    return _products
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map((snapshot) =>
+            snapshot.docs.map((doc) => Product.fromFirestore(doc)).toList());
   }
 
-  Future<Product?> fetchProductById(String id) async {
-    await Future.delayed(const Duration(milliseconds: 500));
-
-    try {
-      return DummyData.products.firstWhere((p) => p.id == id);
-    } catch (e) {
-      return null;
-    }
+  Stream<List<Product>> getProductsByCategory(String category) {
+    return _products
+        .where('category', isEqualTo: category)
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map((snapshot) =>
+            snapshot.docs.map((doc) => Product.fromFirestore(doc)).toList());
   }
 
-  Future<List<Product>> fetchByCategory({
-    required String category,
-  }) async {
-    await Future.delayed(const Duration(milliseconds: 500));
-    return DummyData.products
-        .where((p) => p.category.label.toLowerCase() == category.toLowerCase())
-        .toList();
+  Stream<List<Product>> getMyListings() {
+    final uid = _auth.currentUser?.uid;
+    if (uid == null) return Stream.value([]);
+    return _products
+        .where('sellerId', isEqualTo: uid)
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map((snapshot) =>
+            snapshot.docs.map((doc) => Product.fromFirestore(doc)).toList());
   }
 
   Future<List<Product>> searchProducts(String query) async {
-    await Future.delayed(const Duration(milliseconds: 300));
-
-    return DummyData.products
-        .where((product) => product.matchesSearch(query))
-        .toList();
+    final snapshot = await _products.get();
+    final all = snapshot.docs.map((doc) => Product.fromFirestore(doc)).toList();
+    final lowerQuery = query.toLowerCase();
+    return all.where((p) =>
+        p.title.toLowerCase().contains(lowerQuery) ||
+        p.description.toLowerCase().contains(lowerQuery) ||
+        p.category.label.toLowerCase().contains(lowerQuery)).toList();
   }
 
-  Future<User?> fetchSellerById(String sellerId) async {
-    await Future.delayed(const Duration(milliseconds: 500));
-
-    try {
-      return DummyData.users.firstWhere((u) => u.id == sellerId);
-    } catch (e) {
-      return null;
-    }
+  Future<String> uploadImage(File imageFile) async {
+    final fileName =
+        '${DateTime.now().millisecondsSinceEpoch}_${imageFile.path.split('/').last}';
+    final ref = _storage.ref().child('product_images/$fileName');
+    await ref.putFile(imageFile);
+    return await ref.getDownloadURL();
   }
 
-  Future<List<Review>> fetchReviewsForSeller(String sellerId) async {
-    await Future.delayed(const Duration(milliseconds: 400));
-    return DummyData.reviews.where((r) => r.sellerId == sellerId).toList();
+  Future<void> addProduct(Product product) async {
+    await _products.add(product.toFirestore());
+  }
+
+  Future<void> updateProduct(String id, Map<String, dynamic> data) async {
+    await _products.doc(id).update(data);
+  }
+
+  Future<void> deleteProduct(String id) async {
+    await _products.doc(id).delete();
   }
 }

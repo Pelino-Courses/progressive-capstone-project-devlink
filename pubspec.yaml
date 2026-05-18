@@ -10,6 +10,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  firebase_core: ^4.9.0
+  firebase_auth: ^6.5.1
+  cloud_firestore: ^6.4.1
+  firebase_storage: ^13.4.1
+  image_picker: ^1.1.2
+  cached_network_image: ^3.4.1
+  intl: ^0.20.2
+  uuid: ^4.5.1
 
 dev_dependencies:
   flutter_test:
@@ -19,16 +29,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  fonts:
-    - family: Poppins
-      fonts:
-        - asset: lib/fonts/Poppins-Regular.ttf
-          weight: 400
-        - asset: lib/fonts/Poppins-Medium.ttf
-          weight: 500
-        - asset: lib/fonts/Poppins-SemiBold.ttf
-          weight: 600
-        - asset: lib/fonts/Poppins-Bold.ttf
-          weight: 700
   assets:
-    - assets/
+    - assets/images/

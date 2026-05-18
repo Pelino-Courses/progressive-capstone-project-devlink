@@ -1,8 +1,8 @@
-import 'base_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'enums.dart';
-import '../mixins/searchable.dart';
 
-class Product extends BaseModel with Searchable {
+class Product {
+  final String id;
   final String title;
   final String description;
   final double price;
@@ -11,13 +11,13 @@ class Product extends BaseModel with Searchable {
   final String size;
   final List<String> imageUrls;
   final String sellerId;
+  final String sellerName;
   final String location;
-
   final String? measurements;
+  final DateTime createdAt;
 
   Product({
-    required super.id,
-    required super.createdAt,
+    required this.id,
     required this.title,
     required this.description,
     required this.price,
@@ -26,19 +26,11 @@ class Product extends BaseModel with Searchable {
     required this.size,
     required this.imageUrls,
     required this.sellerId,
+    required this.sellerName,
     required this.location,
     this.measurements,
+    required this.createdAt,
   });
-
-  @override
-  List<String> get searchKeywords => [
-        title,
-        description,
-        category.label,
-        condition.label,
-        size,
-        location,
-      ];
 
   String get formattedPrice => '${price.toStringAsFixed(0)} RWF';
 
@@ -47,18 +39,41 @@ class Product extends BaseModel with Searchable {
   String get timeAgo {
     final difference = DateTime.now().difference(createdAt);
     if (difference.inDays > 0) {
-      return '${difference.inDays} day${difference.inDays == 1 ? '' : 's'} ago';
+      return '${difference.inDays}d ago';
     } else if (difference.inHours > 0) {
-      return '${difference.inHours} hour${difference.inHours == 1 ? '' : 's'} ago';
+      return '${difference.inHours}h ago';
     } else {
       return 'Just now';
     }
   }
 
-  @override
-  Map<String, dynamic> toMap() {
+  factory Product.fromFirestore(DocumentSnapshot doc) {
+    final data = doc.data() as Map<String, dynamic>;
+    return Product(
+      id: doc.id,
+      title: data['title'] ?? '',
+      description: data['description'] ?? '',
+      price: (data['price'] ?? 0).toDouble(),
+      category: ProductCategory.values.firstWhere(
+        (e) => e.name == data['category'],
+        orElse: () => ProductCategory.clothes,
+      ),
+      condition: ProductCondition.values.firstWhere(
+        (e) => e.name == data['condition'],
+        orElse: () => ProductCondition.good,
+      ),
+      size: data['size'] ?? '',
+      imageUrls: List<String>.from(data['imageUrls'] ?? []),
+      sellerId: data['sellerId'] ?? '',
+      sellerName: data['sellerName'] ?? '',
+      location: data['location'] ?? '',
+      measurements: data['measurements'],
+      createdAt: (data['createdAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
+    );
+  }
+
+  Map<String, dynamic> toFirestore() {
     return {
-      'id': id,
       'title': title,
       'description': description,
       'price': price,
@@ -67,9 +82,10 @@ class Product extends BaseModel with Searchable {
       'size': size,
       'imageUrls': imageUrls,
       'sellerId': sellerId,
+      'sellerName': sellerName,
       'location': location,
       'measurements': measurements,
-      'createdAt': createdAt.toIso8601String(),
+      'createdAt': FieldValue.serverTimestamp(),
     };
   }
 }
