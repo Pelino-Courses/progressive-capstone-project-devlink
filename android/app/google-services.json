@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "529238803141",
+    "project_id": "preloved-market",
+    "storage_bucket": "preloved-market.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529238803141:android:cdd746f8a29cd0ed71e6ac",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529238803141-6sdi1moac4ihsp9hg54i3kqcup1u8m49.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4n_zwmFXlM1q3HvW9hOenqzwQrLvh-m0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529238803141-6sdi1moac4ihsp9hg54i3kqcup1u8m49.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
