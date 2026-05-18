@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import '../models/enums.dart';
 import '../theme/app_theme.dart';
 
-/// Add Listing Form Screen — allows sellers to post new items.
-/// (D3: Form with GlobalKey<FormState>, validators, form.validate())
-/// (D4: 4+ fields with meaningful validation including format/length/pattern)
 class AddListingScreen extends StatefulWidget {
   const AddListingScreen({super.key});
 
