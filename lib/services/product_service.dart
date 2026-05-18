@@ -49,6 +49,19 @@ class ProductService {
         p.category.label.toLowerCase().contains(lowerQuery)).toList();
   }
 
+  Future<dynamic> fetchSellerById(String sellerId) async {
+    try {
+      final userDoc = await _firestore.collection('users').doc(sellerId).get();
+      if (userDoc.exists) {
+        return userDoc.data();
+      }
+      return null;
+    } catch (e) {
+      print('Error fetching seller: $e');
+      return null;
+    }
+  }
+
   Future<String> uploadImage(File imageFile) async {
     final fileName =
         '${DateTime.now().millisecondsSinceEpoch}_${imageFile.path.split('/').last}';

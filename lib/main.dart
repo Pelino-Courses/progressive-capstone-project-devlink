@@ -12,9 +12,6 @@ import 'screens/auth/forgot_password_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/product_detail_screen.dart';
 import 'screens/add_listing_screen.dart';
-import 'screens/chat_list_screen.dart';
-import 'screens/chat_screen.dart';
-import 'screens/profile_screen.dart';
 import 'screens/search_screen.dart';
 import 'screens/profile/sub_screens.dart';
 
@@ -66,9 +63,6 @@ class _PreLovedMarketAppState extends State<PreLovedMarketApp> {
         '/home': (context) => const HomeScreen(),
         '/product-detail': (context) => const ProductDetailScreen(),
         '/add-listing': (context) => const AddListingScreen(),
-        '/chat-list': (context) => const ChatListScreen(),
-        '/chat': (context) => const ChatScreen(),
-        '/profile': (context) => const ProfileScreen(),
         '/search': (context) => const SearchScreen(),
         '/cart': (context) => const CartScreen(),
         '/edit-profile': (context) => const EditProfileScreen(),

@@ -4,7 +4,7 @@ import 'package:preloved_market/main.dart';
 
 void main() {
   testWidgets('App launches and shows HomeScreen', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const PreLovedMarketApp());
     await tester.pump();
     expect(find.byType(MaterialApp), findsOneWidget);
   });
